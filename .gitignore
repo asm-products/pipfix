@@ -1,0 +1,26 @@
+# cache
+.sass-cache
+.flask-cache
+
+# python
+*.pyc
+
+# virtualenv
+venv
+.venv
+
+#db
+db.sqlite
+db.sqlite3
+
+#logs
+logs
+
+#django
+media
+
+#search
+whoosh_index
+
+#backups
+backups

@@ -1,0 +1,9 @@
+Django==1.7.1
+Markdown==2.5.1
+argparse==1.2.1
+django-filter==0.8
+django-rest-framework-mongoengine==1.5.3
+djangorestframework==2.4.3
+mongoengine==0.8.7
+pymongo==2.7.2
+wsgiref==0.1.2
