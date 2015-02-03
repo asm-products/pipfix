@@ -138,6 +138,24 @@ position: absolute;
      height: 80px;   
 }
 
+#four {
+    color:#000000;
+   text-align: center;
+    -moz-text-align-last: center; /* Code for Firefox */
+    text-align-last: center;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    position: relative;
+    font-size:18px;
+     margin: auto;
+     top: 564px;
+     right: 0;
+     bottom: 0;
+     left: 0;
+     width: 400px;
+     height: 150px;  
+}
+
 #bottombar {
 background-color: #327CCB; 
     bottom: 0px;
