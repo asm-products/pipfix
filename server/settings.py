@@ -99,8 +99,8 @@ TEMPLATE_DIRS = (
     os.path.join(DJANGO_ROOT, 'templates'),
 )
 
-from mongoengine import connect
-connect(os.getenv('MONGOLAB_URI'))
+import mongoengine
+mongoengine.connect('pipfix', host=os.getenv('MONGOLAB_URI'))
 
 
 REST_FRAMEWORK = {
