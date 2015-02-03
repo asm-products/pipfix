@@ -1,3 +1,7 @@
+import os
+DJANGO_ROOT = os.path.dirname(os.path.realpath(__file__))
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -68,7 +72,6 @@ import dj_database_url
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
-
 DATABASES = {}
 DATABASES['default'] =  dj_database_url.config()
 
@@ -79,9 +82,6 @@ SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
-import os
-DJANGO_ROOT = os.path.dirname(os.path.realpath(__file__))
-PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(__file__)))
 
 MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
@@ -100,7 +100,7 @@ TEMPLATE_DIRS = (
 )
 
 from mongoengine import connect
-connect('pipfix')
+connect(os.getenv('MONGOLAB_URI'))
 
 
 REST_FRAMEWORK = {

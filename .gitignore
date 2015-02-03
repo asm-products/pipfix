@@ -8,6 +8,7 @@
 # virtualenv
 venv
 .venv
+.env
 
 #db
 db.sqlite
@@ -27,3 +28,4 @@ backups
 
 #static
 staticfiles
+
