@@ -47,8 +47,12 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'rest_framework',
+    'mongoengine.django.mongo_auth',
     'rest_framework.authtoken',
 )
+
+AUTH_USER_MODEL = 'mongo_auth.MongoUser'
+MONGOENGINE_USER_DOCUMENT = 'server.documents.User'
 
 TEST_RUNNER = 'django.test.runner.DiscoverRunner'
 
@@ -102,9 +106,5 @@ mongoengine.connect('pipfix', host=os.getenv('MONGOLAB_URI'))
 REST_FRAMEWORK = {
     # Use Django's standard `django.contrib.auth` permissions,
     # or allow read-only access for unauthenticated users.
-    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.TokenAuthentication',
-    )
+    
 }
