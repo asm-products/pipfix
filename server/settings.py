@@ -83,7 +83,6 @@ ALLOWED_HOSTS = ['*']
 
 # Static asset configuration
 
-MEDIA_ROOT = os.path.join(PROJECT_ROOT, 'media')
 
 MEDIA_URL = '/media/'
 
@@ -95,10 +94,6 @@ STATICFILES_DIRS = (
 )
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-TEMPLATE_DIRS = (
-    os.path.join(DJANGO_ROOT, 'templates'),
-)
 
 import mongoengine
 mongoengine.connect('pipfix', host=os.getenv('MONGOLAB_URI'))
