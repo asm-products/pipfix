@@ -11,4 +11,4 @@ class VoteViewSet(ModelViewSet):
 class UserViewSet(ModelViewSet):
   queryset = User.objects.all()
   serializer_class = UserSerializer
-  lookup_field = "stuff_id"
+  lookup_field = "twitter_id"
