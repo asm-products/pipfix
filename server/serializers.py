@@ -9,4 +9,4 @@ class VoteSerializer(DocumentSerializer):
 class UserSerializer(DocumentSerializer):
   class Meta:
     model = User
-    fields = ('username', 'email', 'twitter_id', "followers")
+    fields = ('username', 'email', 'twitter_id', "followed")

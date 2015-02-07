@@ -8,4 +8,4 @@ class Vote(Document):
 class User(auth.User):
   email = EmailField(required=False)
   twitter_id = IntField()
-  followers = ListField(IntField())
+  followed = ListField(IntField())
