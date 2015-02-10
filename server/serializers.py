@@ -5,7 +5,7 @@ from rest_framework.fields import EmailField
 class VoteSerializer(DocumentSerializer):
     class Meta:
         model = Vote
-        fields = ('stuff_id', 'pips', 'user')
+        fields = ('stuff_id', 'pips', 'user', 'comment')
 
 class UserSerializer(DocumentSerializer):
     class Meta:
