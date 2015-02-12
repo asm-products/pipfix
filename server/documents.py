@@ -15,3 +15,8 @@ class User(auth.User):
 
 class Stuff(Document):
     stuff_id = StringField(max_length=120, required=True, unique=True, primary_key=True)
+    title = StringField(max_length=120, required=True)
+    year = IntField()
+    cats = StringField()
+    image = URLField()
+    description = StringField()    
