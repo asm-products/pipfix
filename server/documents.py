@@ -5,7 +5,7 @@ from mongoengine.django import auth
 class Vote(Document):
     stuff = ReferenceField('Stuff')
     pips = IntField(min_value=1, max_value=10)
-    user = ReferenceField('User')
+    user = ReferenceField('User', unique_with='stuff')
     comment = StringField(max_length=256)
 
 class User(auth.User):
@@ -32,3 +32,8 @@ class UserStuff(Document):
     def average(self):
         users = User.objects(twitter_id__in=self.user.followed)
         return Vote.objects(stuff=self.stuff, user__in=users).average('pips')
+
+    @property
+    def votes(self):
+        users = User.objects(twitter_id__in=self.user.followed)
+        return Vote.objects(stuff=self.stuff, user__in=users)

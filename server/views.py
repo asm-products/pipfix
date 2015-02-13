@@ -7,7 +7,7 @@ from rest_framework_extensions.mixins import NestedViewSetMixin
 class VoteViewSet(NestedViewSetMixin, ModelViewSet):
     queryset = Vote.objects.all()
     serializer_class = VoteSerializer
-    lookup_field = "stuff"
+
 
 class UserViewSet(NestedViewSetMixin, ModelViewSet):
     queryset = User.objects.all()

@@ -14,6 +14,7 @@ class UserSerializer(DocumentSerializer):
         read_only_fields = ('id')
         extra_kwargs = {'followed': {'write_only': True}}
         fields = ('id', 'username', 'email', 'twitter_id', "followed")
+        read_only_fields = ('id',)
 
 class StuffSerializer(DocumentSerializer):
     class Meta:
@@ -23,8 +24,9 @@ class StuffSerializer(DocumentSerializer):
         read_only_fields = ('average',)
 
 class UserStuffSerializer(DocumentSerializer):
+    votes = VoteSerializer(many=True)
     class Meta:
         model = UserStuff
-        fields = ('stuff', 'user', 'average')
+        fields = ('stuff', 'user', 'average', 'votes')
         depth = 1
-        read_only_fields = 'average'
+        read_only_fields = ('average', 'votes')
