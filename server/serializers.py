@@ -23,10 +23,8 @@ class StuffSerializer(DocumentSerializer):
         read_only_fields = ('average',)
 
 class UserStuffSerializer(DocumentSerializer):
-    user = UserSerializer()
-    stuff = StuffSerializer()
-
     class Meta:
         model = UserStuff
         fields = ('stuff', 'user', 'average')
+        depth = 1
         read_only_fields = 'average'
