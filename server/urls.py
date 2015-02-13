@@ -13,7 +13,6 @@ user_router.register(r'votes', VoteViewSet, base_name='users-vote',
                 parents_query_lookups=['user'])
 user_router.register(r'user-stuff', UserStuffViewSet, base_name='users-stuff',
                 parents_query_lookups=['user'])
-router.register(r'votes', VoteViewSet, base_name="vote" )
 router.register(r'stuff', StuffViewSet, base_name="stuff" 
     ).register(r'votes', VoteViewSet, base_name="stuff-votes",
                 parents_query_lookups=['stuff']
