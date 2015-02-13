@@ -6,8 +6,7 @@ class VoteSerializer(DocumentSerializer):
     class Meta:
         model = Vote
         depth = 1
-        fields = ('id', 'stuff', 'pips', 'user', 'comment')
-        read_only_fields = ('id',)
+        fields = ('stuff', 'pips', 'user', 'comment')
 
 class UserSerializer(DocumentSerializer):
     class Meta:
