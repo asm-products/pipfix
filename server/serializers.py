@@ -1,4 +1,4 @@
-from server.documents import Vote, User, Stuff
+from server.documents import Vote, User, Stuff, UserStuff
 from rest_framework_mongoengine.serializers import DocumentSerializer
 from rest_framework.fields import EmailField
 
@@ -18,3 +18,15 @@ class UserSerializer(DocumentSerializer):
 class StuffSerializer(DocumentSerializer):
     class Meta:
         model = Stuff
+        fields = ('stuff_id', 'title', 'year', 'image', 'description', 
+            'average')
+        read_only_fields = ('average',)
+
+class UserStuffSerializer(DocumentSerializer):
+    user = UserSerializer()
+    stuff = StuffSerializer()
+
+    class Meta:
+        model = UserStuff
+        fields = ('stuff', 'user', 'average')
+        read_only_fields = 'average'

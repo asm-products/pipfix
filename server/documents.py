@@ -17,6 +17,18 @@ class Stuff(Document):
     stuff_id = StringField(max_length=120, required=True, unique=True, primary_key=True)
     title = StringField(max_length=120, required=True)
     year = IntField()
-    cats = StringField()
     image = URLField()
-    description = StringField()    
+    description = StringField()
+
+    @property
+    def average(self):
+        return Vote.objects(stuff=self).average('pips')
+
+class UserStuff(Document):
+    user = ReferenceField('User', unique_with="stuff")
+    stuff = ReferenceField('Stuff')
+
+    @property
+    def average(self):
+        users = User.objects(twitter_id__in=self.user.followed)
+        return Vote.objects(stuff=self.stuff, user__in=users).average('pips')
