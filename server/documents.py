@@ -8,6 +8,10 @@ class Vote(Document):
     user = ReferenceField('User', unique_with='stuff')
     comment = StringField(max_length=256)
 
+    @property
+    def username(self):
+        return self.user.username
+
 class User(auth.User):
     email = EmailField(required=False)
     twitter_id = IntField()
