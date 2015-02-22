@@ -27,6 +27,6 @@ class UserStuffSerializer(DocumentSerializer):
     votes = VoteSerializer(many=True, read_only=True)
     class Meta:
         model = UserStuff
-        fields = ('stuff', 'user', 'average', 'votes')
+        fields = ('stuff', 'user', 'average', 'votes', 'global_average')
         depth = 1
-        read_only_fields = ('average', 'votes')
+        read_only_fields = ('average', 'votes', 'global_average')

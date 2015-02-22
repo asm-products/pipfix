@@ -41,3 +41,7 @@ class UserStuff(Document):
     def votes(self):
         users = User.objects(twitter_id__in=self.user.followed)
         return Vote.objects(stuff=self.stuff, user__in=users)
+
+    @property
+    def global_average(self):
+        return self.stuff.average
