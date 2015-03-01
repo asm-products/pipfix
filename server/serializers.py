@@ -13,7 +13,7 @@ class UserSerializer(DocumentSerializer):
         model = User
         read_only_fields = ('id')
         extra_kwargs = {'followed': {'write_only': True}}
-        fields = ('id', 'username', 'email', 'twitter_id', "followed")
+        fields = ('id', 'username', 'email', 'twitter_id', "followed", "token")
         read_only_fields = ('id',)
 
 class StuffSerializer(DocumentSerializer):

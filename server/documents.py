@@ -1,6 +1,7 @@
 from mongoengine import *
 from mongoengine.django import auth
-
+import binascii
+import os
 
 class Vote(Document):
     stuff = ReferenceField('Stuff')
@@ -16,6 +17,13 @@ class User(auth.User):
     email = EmailField(required=False)
     twitter_id = IntField()
     followed = ListField(IntField())
+    token = StringField(max_length=40, unique=True)
+
+    def save(self, *args, **kwargs):
+        if not self.id or not self.token:
+            self.token = binascii.hexlify(os.urandom(20)).decode()
+
+        super(User, self).save(*args, **kwargs)
 
 class Stuff(Document):
     stuff_id = StringField(max_length=120, required=True, unique=True, primary_key=True)
