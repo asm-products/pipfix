@@ -2,6 +2,7 @@ from rest_framework_mongoengine.viewsets import ModelViewSet
 from server.documents import Vote, User, Stuff, UserStuff
 from server.serializers import VoteSerializer, UserSerializer, StuffSerializer, UserStuffSerializer
 from rest_framework_extensions.mixins import NestedViewSetMixin
+from rest_framework import permissions
 
 
 class VoteViewSet(NestedViewSetMixin, ModelViewSet):
@@ -13,6 +14,7 @@ class VoteViewSet(NestedViewSetMixin, ModelViewSet):
 class UserViewSet(NestedViewSetMixin, ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+    permission_classes = (permissions.AllowAny,)
   
 class StuffViewSet(NestedViewSetMixin, ModelViewSet):
     queryset = Stuff.objects.all()
