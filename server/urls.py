@@ -2,7 +2,7 @@ from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from server import views
 from rest_framework import routers
-from server.views import VoteViewSet, UserViewSet, StuffViewSet, UserStuffViewSet
+from server.views import *
 from rest_framework_extensions.routers import ExtendedDefaultRouter
 
 router = ExtendedDefaultRouter()
@@ -17,6 +17,7 @@ router.register(r'stuff', StuffViewSet, base_name="stuff"
     ).register(r'votes', VoteViewSet, base_name="stuff-votes",
                 parents_query_lookups=['stuff']
     )
+router.register(r'timeline', TimelineViewSet, base_name='timeline')
 
 
 urlpatterns = patterns('',

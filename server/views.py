@@ -25,3 +25,12 @@ class UserStuffViewSet(NestedViewSetMixin, ModelViewSet):
     queryset = UserStuff.objects.all()
     serializer_class = UserStuffSerializer
     lookup_field = "stuff"
+
+class TimelineViewSet(ModelViewSet):
+    queryset = Vote.objects.all()
+    serializer_class = VoteSerializer
+
+    def get_queryset(self):
+        user = self.request.user
+        users = User.objects(twitter_id__in=user.followed)
+        return Vote.objects(user__in=users)
