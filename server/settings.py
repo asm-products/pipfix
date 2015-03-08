@@ -103,7 +103,6 @@ REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
          'rest_framework.permissions.IsAuthenticated',),
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
         'server.auth.MyTokenAuthentication',
     ),
     'DEFAULT_FILTER_BACKENDS': ('server.filters.TwitterUserFilterBackend',)
